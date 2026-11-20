@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#070b14" />
+    <title>Sonora — Voice studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#" aria-label="Sonora home">
+          <span class="brand-mark"><i></i><i></i><i></i><i></i></span>
+          <span>sonora</span>
+        </a>
+
+        <div class="workspace-switcher">
+          <div class="workspace-avatar">S</div>
+          <div>
+            <span class="eyebrow">Workspace</span>
+            <strong>Studio team</strong>
+          </div>
+          <span class="chevron">⌄</span>
+        </div>
+
+        <nav class="primary-nav" aria-label="Primary navigation">
+          <a class="nav-item active" href="#studio"><span class="nav-icon">✦</span> Studio</a>
+          <a class="nav-item" href="#voices"><span class="nav-icon">◉</span> Voice library <span class="nav-count">24</span></a>
+          <a class="nav-item" href="#projects"><span class="nav-icon">▱</span> Projects</a>
+          <a class="nav-item" href="#history"><span class="nav-icon">◷</span> History</a>
+        </nav>
+
+        <div class="sidebar-label">Your voices</div>
+        <div class="voice-list">
+          <button class="voice-list-item" data-voice="Ava">
+            <span class="mini-avatar ava">A</span><span>Ava · Warm</span><span class="voice-dot"></span>
+          </button>
+          <button class="voice-list-item" data-voice="Theo">
+            <span class="mini-avatar theo">T</span><span>Theo · Clear</span><span class="voice-dot"></span>
+          </button>
+          <button class="voice-list-item" data-voice="Mira">
+            <span class="mini-avatar mira">M</span><span>Mira · Bright</span><span class="voice-dot"></span>
+          </button>
+        </div>
+
+        <div class="sidebar-bottom">
+          <a class="nav-item" href="#help"><span class="nav-icon">?</span> Help center</a>
+          <a class="nav-item" href="#settings"><span class="nav-icon">⚙</span> Settings</a>
+          <div class="profile-row"><div class="profile-avatar">JD</div><div><strong>Jordan Davis</strong><span>Free plan</span></div><span class="more">•••</span></div>
+        </div>
+      </aside>
+
+      <main class="main-content" id="studio">
+        <header class="topbar">
+          <div class="breadcrumbs"><span>Studio</span><b>/</b><strong>New project</strong></div>
+          <div class="top-actions"><button class="icon-button" aria-label="Notifications">♢<span class="notification-dot"></span></button><button class="secondary-button" id="saveProject">Save project</button><button class="primary-button compact" id="newProject">＋ New project</button></div>
+        </header>
+
+        <div class="page-heading">
+          <div><div class="kicker"><span class="live-dot"></span> Voice studio</div><h1>Bring your words to life.</h1><p>Shape a voice, refine the delivery, and create something worth listening to.</p></div>
+          <div class="heading-meta"><span class="plan-pill">Free plan</span><span class="usage"><strong>3,240</strong> / 10,000 characters</span></div>
+        </div>
+
+        <section class="studio-grid">
+          <div class="left-column">
+            <section class="panel script-panel">
+              <div class="panel-heading"><div><span class="section-number">01</span><h2>Your script</h2></div><div class="panel-tools"><span id="charCount">0 / 5,000</span><button class="tool-button" id="clearScript">Clear</button></div></div>
+              <div class="script-wrap"><textarea id="scriptInput" maxlength="5000" spellcheck="true" placeholder="Start writing or paste your script here...">Welcome to Sonora. Every idea has a voice — let’s find yours.</textarea><div class="script-footer"><span class="hint"><span class="sparkle">✦</span> Tip: use punctuation to guide the rhythm</span><button class="refine-button" id="refineScript">✦ Refine with AI</button></div></div>
+            </section>
+
+            <section class="panel preview-panel">
+              <div class="panel-heading"><div><span class="section-number">02</span><h2>Preview</h2></div><div class="preview-status" id="previewStatus"><span class="status-dot"></span> Ready to generate</div></div>
+              <div class="audio-card">
+                <div class="audio-card-top"><div class="selected-voice"><div class="voice-avatar ava" id="previewAvatar">A</div><div><strong id="previewVoiceName">Ava</strong><span id="previewVoiceStyle">Warm · Conversational</span></div></div><button class="round-play" id="playPreview" aria-label="Play preview">▶</button></div>
+                <div class="waveform" id="waveform" aria-label="Audio waveform visualization"></div>
+                <div class="audio-time"><span id="audioTime">00:00</span><span>00:08</span></div>
+              </div>
+              <div class="preview-actions"><button class="secondary-button" id="stopPreview">Stop</button><button class="download-button" id="downloadProject">↓ Export settings</button></div>
+            </section>
+
+            <section class="recent-section" id="history"><div class="recent-heading"><h2>Recent generations</h2><button class="text-button">View all <span>→</span></button></div><div class="recent-list" id="recentList"></div></section>
+          </div>
+
+          <aside class="right-column" id="voices">
+            <section class="panel options-panel">
+              <div class="panel-heading"><div><span class="section-number">03</span><h2>Voice &amp; delivery</h2></div><button class="more-button" aria-label="More options">•••</button></div>
+              <label class="field-label" for="voiceSelect">Voice</label>
+              <div class="select-with-avatar"><div class="voice-avatar ava" id="selectAvatar">A</div><select id="voiceSelect"><option value="Ava">Ava — Warm &amp; conversational</option><option value="Theo">Theo — Clear &amp; confident</option><option value="Mira">Mira — Bright &amp; energetic</option><option value="Sam">Sam — Calm &amp; grounded</option></select><span class="select-arrow">⌄</span></div>
+              <div class="field-grid"><div><label class="field-label" for="languageSelect">Language</label><select class="plain-select" id="languageSelect"><option>English (US)</option><option>English (UK)</option><option>Spanish</option><option>French</option></select></div><div><label class="field-label" for="modelSelect">Model</label><select class="plain-select" id="modelSelect"><option>Sonora Natural</option><option>Sonora Studio</option><option>Sonora Express</option></select></div></div>
+              <div class="field-label-row"><label class="field-label">Delivery style</label><span class="value-note" id="styleValue">Conversational</span></div>
+              <div class="style-chips" id="styleChips"><button class="style-chip active" data-style="Conversational">Conversational</button><button class="style-chip" data-style="Narrative">Narrative</button><button class="style-chip" data-style="Energetic">Energetic</button><button class="style-chip" data-style="Calm">Calm</button></div>
+              <div class="divider"></div>
+              <div class="field-label-row"><label class="field-label" for="stability">Stability</label><span class="slider-value" id="stabilityValue">62%</span></div><input class="range" id="stability" type="range" min="0" max="100" value="62" />
+              <div class="field-label-row"><label class="field-label" for="clarity">Clarity + similarity</label><span class="slider-value" id="clarityValue">78%</span></div><input class="range" id="clarity" type="range" min="0" max="100" value="78" />
+              <div class="field-label-row"><label class="field-label" for="expressiveness">Expressiveness</label><span class="slider-value" id="expressivenessValue">44%</span></div><input class="range" id="expressiveness" type="range" min="0" max="100" value="44" />
+              <div class="field-label-row"><label class="field-label" for="speed">Speed</label><span class="slider-value" id="speedValue">1.0×</span></div><input class="range" id="speed" type="range" min="70" max="130" value="100" />
+              <button class="primary-button generate-button" id="generateButton"><span>✦</span> Generate preview <kbd>⌘ ↵</kbd></button>
+            </section>
+
+            <section class="panel refine-panel"><div class="refine-title"><span class="refine-icon">✧</span><div><h3>Refine your delivery</h3><p>Give your voice a little direction.</p></div></div><div class="refine-tags"><button class="refine-tag" data-insert="Speak with a little more warmth and optimism.">+ Warm</button><button class="refine-tag" data-insert="Keep the pacing slow and thoughtful.">+ Thoughtful</button><button class="refine-tag" data-insert="Add a confident lift to the final words.">+ Confident</button></div></section>
+          </aside>
+        </section>
+        <footer class="page-footer"><span>Sonora Studio · A simple space for better voices</span><span><span class="footer-dot"></span> All changes saved locally</span></footer>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
